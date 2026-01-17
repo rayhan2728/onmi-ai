@@ -3,6 +3,8 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { MicrophoneIcon, StopCircleIcon, SignalIcon } from '@heroicons/react/24/solid';
 import { getGeminiClient } from '../services/geminiService';
 import { decode, decodeAudioData, encode } from '../utils/audioUtils';
+// Added missing Modality import to follow @google/genai guidelines
+import { Modality } from '@google/genai';
 
 export default function LiveConversation() {
   const [isActive, setIsActive] = useState(false);
@@ -101,7 +103,8 @@ export default function LiveConversation() {
           onclose: () => stopConversation()
         },
         config: {
-          responseModalities: ['AUDIO' as any],
+          // Use the Modality enum instead of string literals to comply with library standards
+          responseModalities: [Modality.AUDIO],
           outputAudioTranscription: {},
           inputAudioTranscription: {},
           systemInstruction: 'You are a helpful companion. Keep responses conversational and concise.'

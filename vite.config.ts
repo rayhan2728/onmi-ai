@@ -3,8 +3,9 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
-  // Fix: Cast process to any to resolve the TypeScript error 'Property cwd does not exist on type Process' in the build environment
-  const env = loadEnv(mode, (process as any).cwd(), '');
+  // Use '.' instead of process.cwd() to resolve the directory for environment variables,
+  // avoiding TypeScript errors in environments where 'process.cwd()' is not recognized by the compiler.
+  const env = loadEnv(mode, '.', '');
 
   return {
     plugins: [react()],
