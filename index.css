@@ -1,5 +1,3 @@
-
-/* Tailwind and basic styles are handled in index.html, but this file is needed for Vite's default build expectations */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
