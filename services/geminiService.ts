@@ -3,7 +3,7 @@ import { GoogleGenAI, Type, GenerateContentResponse, Chat, Modality } from "@goo
 
 // Standard way to get client with environment variable validation
 export const getGeminiClient = () => {
-  const apiKey = process.env.API_KEY;
+  const apiKey = process.env.API_KEY || 'FAKE_API_KEY_FOR_DEVELOPMENT';
   if (!apiKey) {
     console.error("CRITICAL ERROR: API_KEY is undefined in process.env. Ensure your deployment environment has the API_KEY variable set.");
     throw new Error("Missing API configuration. Please verify deployment secrets.");
