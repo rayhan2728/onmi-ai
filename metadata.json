@@ -1,0 +1,8 @@
+{
+  "name": "RAYHAN OMNIKING",
+  "description": "An all-in-one AI platform demonstrating text generation, vision, image/video synthesis, data analysis, and autonomous planning using Google Gemini.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
